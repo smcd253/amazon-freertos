@@ -35,7 +35,7 @@ Note: This repository currently only works on Ubuntu.
     cd stlink
     make
     #install binaries:
-    sudo cp build/Debug/st-* /usr/local/bin
+    sudo cp build/Debug/st-* /usr/bin
     #install udev rules
     sudo cp etc/udev/rules.d/49-stlinkv* /etc/udev/rules.d/
     #and restart udev
@@ -53,17 +53,19 @@ Note: This repository currently only works on Ubuntu.
     * You can also download VS-Code [here](https://code.visualstudio.com/download).
     * **make sure the VS-Code command line tools are added to path**
 
-5. Modify the demo you would like to build `./demos/<demo_name>/<demo_name>.c`.
+5. Modify your broker endpoint, thing name, ssid, and wpa2 password in `./demos/include/aws_clientcredential.h`
 
-6. Plug in your STM32L4.
+6. Modify the demo you would like to build `./demos/<demo_name>/<demo_name>.c`.
 
-7. Run the following commands to build the .elf executable. (From the workspace route)
+7. Plug in your STM32L4.
+
+8. Run the following commands to build the .elf executable. (From the workspace route)
 ```
 cmake -DBOARD=stm32l475_discovery -DCMAKE_TOOLCHAIN_FILE='/media/shmcdono/Storage/FreeRTOS/AmazonFreeRTOS/tools/cmake/toolchains/arm-gcc.cmake'  -S . -B build
 cd build
 make
 ```
-8. Flash the device with your program.
+9. Flash the device with your program.
 ```
 arm-none-eabi-objcopy -O binary aws_demos.elf aws_demos.bin
 st-flash write aws_demos.bin 0x8000000
