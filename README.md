@@ -60,7 +60,7 @@ Note: This repository currently only works on Ubuntu.
 7. Run the following commands to build the .elf executable. (From the workspace route)
 ```
 cmake -DBOARD=stm32l475_discovery -DCMAKE_TOOLCHAIN_FILE='/media/shmcdono/Storage/FreeRTOS/AmazonFreeRTOS/tools/cmake/toolchains/arm-gcc.cmake'  -S . -B build
-cd cmake/build
+cd build
 make
 ```
 8. Flash the device with your program.
@@ -98,7 +98,7 @@ st-flash write aws_demos.bin 0x8000000
 
 4. Build the debuggable executable.
 ```
-cmake -DBOARD=stm32l475_discovery -DCMAKE_TOOLCHAIN_FILE='/media/shmcdono/Storage/FreeRTOS/AmazonFreeRTOS/tools/cmake/toolchains/arm-gcc.cmake' -DAFR_TOOLCHAIN_PATH='/home/shmcdono/gcc-arm-none-eabi-9-2019-q4-major/bin/' -DCMAKE_BUILD_TYPE=debug -S .. -B build
+cmake -DBOARD=stm32l475_discovery -DCMAKE_TOOLCHAIN_FILE='/media/shmcdono/Storage/FreeRTOS/AmazonFreeRTOS/tools/cmake/toolchains/arm-gcc.cmake' -DAFR_TOOLCHAIN_PATH='/home/shmcdono/gcc-arm-none-eabi-9-2019-q4-major/bin/' -DCMAKE_BUILD_TYPE=debug -S . -B build
 ```
 
 5. Run the debugger throught the VS-Code debugging window.

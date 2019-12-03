@@ -39,6 +39,10 @@
 
 /* Set up logging for this demo. */
 #include "iot_demo_logging.h"
+// Print log messages up to the "info" level.
+#define LIBRARY_LOG_LEVEL    IOT_LOG_INFO
+// Print library name "SAMPLE".
+#define LIBRARY_LOG_NAME     "SAMPLE"
 
 /* Platform layer includes. */
 #include "platform/iot_clock.h"
@@ -46,6 +50,8 @@
 
 /* MQTT include. */
 #include "iot_mqtt.h"
+
+
 
 /**
  * @cond DOXYGEN_IGNORE
